@@ -152,7 +152,7 @@ function cardHTML(ip,type,j){
   <div><div class="motd">${cleanMotd(j.motd)||'<span class="muted">Sin MOTD</span>'}</div>
   <div class="meta"><span>Versión: <b>${esc((j.version&&j.version.name)||"?")}</b></span><span>Jugadores: <b>${pl.online==null?"?":pl.online}/${pl.max==null?"?":pl.max}</b></span><span>Estado: <b>${on?"En línea":"Offline"}</b></span></div>
   <div class="pbar"><i style="width:${pct}%"></i></div>
-  ${list?`<div class="players">En línea: ${list}${(pl.list||[]).length>12?"…":""}</div>`:""}</div></div></div>`;
+  ${list?`<div class="players">En línea: ${list}${(pl.list||[]).length>12?"…":""}</div>`:""}${!on?`<p class="muted">Nota: servidores grandes como Hypixel bloquean estas consultas y salen offline aunque estén activos. Prueba con otra IP.</p>`:""}</div></div></div>`;
 }
 async function check(ip,type,target,silent){
   ip=(ip||"").trim();
